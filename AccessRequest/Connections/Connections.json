@@ -1,0 +1,58 @@
+{
+  "45449f38-07a0-4fe6-82d1-24a6e5f66b29": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1591/1.0.1591.2961/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://universityoflincoln.sharepoint.com/sites/DevelopmentEnvrionment": {
+        "dataSources": {
+          "Company List": {
+            "tableName": "e9d588b9-6a1b-443c-8a55-77b3f327abb1"
+          },
+          "Request_Table": {
+            "tableName": "4f9398f4-d446-4733-8a32-618d2ea668e7"
+          },
+          "Request_Visit_Type": {
+            "tableName": "e730fac7-e34d-4b30-82a2-5e935973c061"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "Company List",
+      "Request_Visit_Type",
+      "Request_Table"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "45449f38-07a0-4fe6-82d1-24a6e5f66b29"
+  },
+  "f8d3023f-74ac-44f7-babc-729f01120d91": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Office 365 Users",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1593/1.0.1593.2980/office365users/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365users",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "Office365Users"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "f8d3023f-74ac-44f7-babc-729f01120d91"
+  }
+}

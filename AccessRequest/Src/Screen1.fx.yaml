@@ -1,0 +1,115 @@
+Screen1 As screen:
+
+    Req_Full_Name As text:
+        Default: =""
+        HintText: ="Full Name"
+        X: =26
+        Y: =60
+        ZIndex: =1
+
+    Req_Email As text:
+        Default: =""
+        HintText: ="Email"
+        X: =26
+        Y: =112
+        ZIndex: =2
+
+    ReqPhoner As text:
+        Default: =""
+        Format: =TextFormat.Number
+        HintText: ="Phone Number"
+        X: =485
+        Y: =60
+        ZIndex: =3
+
+    Req_type As combobox:
+        DisplayFields: =["Title"]
+        InputTextPlaceholder: ="Visit type"
+        Items: =Request_Visit_Type
+        SearchFields: =["Title"]
+        SearchItems: =Search(Request_Visit_Type,Req_type.SearchText,"Title")
+        SelectMultiple: =false
+        X: =28
+        Y: =201
+        ZIndex: =4
+
+    Req_Com As combobox:
+        DisplayFields: =["Title"]
+        InputTextPlaceholder: ="Select Company"
+        Items: ='Company List'
+        SearchFields: =["Title"]
+        SearchItems: =Search('Company List',Req_Com.SearchText,"Title")
+        SelectMultiple: =false
+        X: =363
+        Y: =201
+        ZIndex: =5
+
+    Req_startdate As datepicker:
+        Width: =341
+        X: =22
+        Y: =260
+        ZIndex: =6
+
+    Button1 As button:
+        OnSelect: |-
+            =//Code to send data to sharepoint
+            
+            Patch(Request_Table,{
+                InReq_PhoneNumber:Value(ReqPhone.Text),
+                InReq_email:Req_Email.Text,
+                InReq_FullName:Req_Full_Name.Text,
+                InReq_type:Req_type.Selected.Title,
+                InReq_code:Req_code.Text,        //Code depends on selected visit type
+                InReq_StartDate:Req_startdate.SelectedDate,
+                InReq_EndDate:Req_EndDate.SelectedDate,
+                InReq_VisitNote:Req_Visitnote.Text,
+                InReq_Company:Req_Com.Selected.Title,
+                RequestorName:User().FullName,
+                RequestorEmail:User().Email,
+                RequestDate:Today()
+            
+            }
+            )
+        Text: ="Apply"
+        X: =22
+        Y: =515
+        ZIndex: =8
+
+    Req_Visitnote As text:
+        Default: =""
+        Height: =190
+        HintText: ="Visit Notes"
+        Mode: =TextMode.MultiLine
+        Width: =592
+        X: =22
+        Y: =313
+        ZIndex: =9
+
+    Req_code As label:
+        Text: =Req_type.Selected.Visit_code
+        X: =22
+        Y: =574
+        ZIndex: =10
+
+    Req_EndDate As datepicker:
+        X: =363
+        Y: =260
+        ZIndex: =11
+
+    Dropdown1 As dropdown:
+        Default: =
+        Height: =37
+        Items: =["+44"]
+        Width: =103
+        X: =372
+        Y: =63
+        ZIndex: =12
+
+    ReqPhone As text:
+        Default: =Concatenate(Dropdown1.Selected.Value,ReqPhoner.Text)
+        DisplayMode: =DisplayMode.Disabled
+        Format: =TextFormat.Number
+        X: =822
+        Y: =60
+        ZIndex: =13
+

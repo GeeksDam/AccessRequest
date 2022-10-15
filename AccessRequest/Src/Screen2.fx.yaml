@@ -1,0 +1,22 @@
+Screen2 As screen:
+
+    Button2 As button:
+        Text: ="Single Access"
+        X: =230
+        Y: =340
+        ZIndex: =1
+
+    Button3 As button:
+        Text: ="Company access "
+        Width: =210
+        X: =517
+        Y: =340
+        ZIndex: =2
+
+    Button4 As button:
+        Text: ="Administartor "
+        Width: =185
+        X: =842
+        Y: =340
+        ZIndex: =3
+
