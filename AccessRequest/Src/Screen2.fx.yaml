@@ -1,6 +1,7 @@
 Screen2 As screen:
 
     Button2 As button:
+        OnSelect: =Navigate(Screen1)
         Text: ="Single Access"
         X: =230
         Y: =340

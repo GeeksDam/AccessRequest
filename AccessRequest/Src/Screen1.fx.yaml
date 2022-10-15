@@ -1,36 +1,43 @@
 Screen1 As screen:
+    Fill: =RGBA(153, 207, 236, 1)
 
     Req_Full_Name As text:
         Default: =""
         HintText: ="Full Name"
-        X: =26
-        Y: =60
+        Size: =10
+        X: =118
+        Y: =63
         ZIndex: =1
 
     Req_Email As text:
         Default: =""
         HintText: ="Email"
-        X: =26
-        Y: =112
+        Size: =10
+        X: =118
+        Y: =121
         ZIndex: =2
 
     ReqPhoner As text:
         Default: =""
         Format: =TextFormat.Number
         HintText: ="Phone Number"
-        X: =485
-        Y: =60
+        Size: =10
+        X: =118
+        Y: =174
         ZIndex: =3
 
     Req_type As combobox:
         DisplayFields: =["Title"]
+        Height: =42
         InputTextPlaceholder: ="Visit type"
         Items: =Request_Visit_Type
         SearchFields: =["Title"]
         SearchItems: =Search(Request_Visit_Type,Req_type.SearchText,"Title")
         SelectMultiple: =false
-        X: =28
-        Y: =201
+        Size: =10
+        Width: =324
+        X: =114
+        Y: =274
         ZIndex: =4
 
     Req_Com As combobox:
@@ -40,17 +47,21 @@ Screen1 As screen:
         SearchFields: =["Title"]
         SearchItems: =Search('Company List',Req_Com.SearchText,"Title")
         SelectMultiple: =false
-        X: =363
-        Y: =201
+        Size: =10
+        X: =114
+        Y: =340
         ZIndex: =5
 
     Req_startdate As datepicker:
-        Width: =341
-        X: =22
-        Y: =260
+        Height: =30
+        Size: =10
+        Width: =220
+        X: =218
+        Y: =422
         ZIndex: =6
 
     Button1 As button:
+        Height: =32
         OnSelect: |-
             =//Code to send data to sharepoint
             
@@ -70,38 +81,46 @@ Screen1 As screen:
             
             }
             )
+        Size: =10
         Text: ="Apply"
-        X: =22
-        Y: =515
+        Width: =130
+        X: =218
+        Y: =664
         ZIndex: =8
 
     Req_Visitnote As text:
         Default: =""
-        Height: =190
+        Height: =91
         HintText: ="Visit Notes"
         Mode: =TextMode.MultiLine
-        Width: =592
-        X: =22
-        Y: =313
+        X: =118
+        Y: =523
         ZIndex: =9
 
     Req_code As label:
+        Height: =38
         Text: =Req_type.Selected.Visit_code
-        X: =22
-        Y: =574
+        Visible: =false
+        Width: =104
+        X: =118
+        Y: =614
         ZIndex: =10
 
     Req_EndDate As datepicker:
-        X: =363
-        Y: =260
+        Height: =27
+        Size: =10
+        Width: =220
+        X: =218
+        Y: =469
         ZIndex: =11
 
     Dropdown1 As dropdown:
         Default: =
         Height: =37
         Items: =["+44"]
+        Visible: =false
         Width: =103
-        X: =372
+        X: =764
         Y: =63
         ZIndex: =12
 
@@ -109,7 +128,45 @@ Screen1 As screen:
         Default: =Concatenate(Dropdown1.Selected.Value,ReqPhoner.Text)
         DisplayMode: =DisplayMode.Disabled
         Format: =TextFormat.Number
-        X: =822
-        Y: =60
+        Size: =10
+        X: =118
+        Y: =214
         ZIndex: =13
+
+    Label1 As label:
+        Height: =23
+        Size: =10
+        Text: |-
+            ="Start Date :"
+        X: =134
+        Y: =422
+        ZIndex: =14
+
+    Label1_1 As label:
+        Height: =23
+        Size: =10
+        Text: |-
+            ="End Date :"
+        X: =134
+        Y: =465
+        ZIndex: =15
+
+    Image1 As image:
+        Height: =441
+        Image: ='a-guide-to-qr-codes-and-how-to-scan-qr-codes-4'
+        Width: =769
+        X: =497
+        Y: =23
+        ZIndex: =16
+
+    Label2 As label:
+        Align: =Center
+        Font: =Font.'Courier New'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        Text: ="Access Control Request "
+        Width: =298
+        X: =710
+        Y: =478
+        ZIndex: =17
 
