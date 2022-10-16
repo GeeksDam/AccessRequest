@@ -1,9 +1,9 @@
-Screen2 As screen:
+Home As screen:
     Fill: =RGBA(179, 179, 179, 1)
 
     Button2 As button:
         BorderThickness: =0
-        OnSelect: =Navigate(Screen1)
+        OnSelect: =Navigate(Single_Access)
         RadiusBottomLeft: =0
         RadiusBottomRight: =0
         RadiusTopLeft: =0
@@ -51,7 +51,7 @@ Screen2 As screen:
         RadiusTopLeft: =0
         RadiusTopRight: =0
         Size: =12
-        Text: ="EXIT"
+        Text: ="Exit"
         X: =248
         Y: =232
         ZIndex: =5

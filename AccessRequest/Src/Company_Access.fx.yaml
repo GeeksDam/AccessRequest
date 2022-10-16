@@ -4,6 +4,7 @@ Company_Access As screen:
     Req_Full_Name_1 As text:
         Default: =""
         HintText: ="Full Name"
+        Reset: =true
         Size: =10
         X: =118
         Y: =63
@@ -36,8 +37,8 @@ Company_Access As screen:
         SelectMultiple: =false
         Size: =10
         Width: =324
-        X: =114
-        Y: =274
+        X: =118
+        Y: =230
         ZIndex: =4
 
     Req_Com_1 As combobox:
@@ -49,7 +50,7 @@ Company_Access As screen:
         SelectMultiple: =false
         Size: =10
         X: =114
-        Y: =340
+        Y: =291
         ZIndex: =5
 
     Req_startdate_1 As datepicker:
@@ -78,7 +79,9 @@ Company_Access As screen:
                 InReq_Company:Req_Com_1.Selected.Title,
                 RequestorName:User().FullName,
                 RequestorEmail:User().Email,
-                RequestDate:Today()
+                RequestDate:Today(),
+                Visit_Number:Slider1.Value,
+                Access_Group:"Company"
             
             }
             )
@@ -130,6 +133,7 @@ Company_Access As screen:
         DisplayMode: =DisplayMode.Disabled
         Format: =TextFormat.Number
         Size: =10
+        Visible: =false
         X: =118
         Y: =214
         ZIndex: =13
@@ -174,11 +178,26 @@ Company_Access As screen:
     Button1_3 As button:
         BorderThickness: =0
         Height: =32
-        OnSelect: =Navigate(Screen2)
+        OnSelect: =Navigate(Home)
         Size: =10
         Text: ="Exit"
         Width: =130
         X: =308
         Y: =639
         ZIndex: =18
+
+    Slider1 As slider:
+        HandleSize: =30
+        Height: =52
+        Min: =2
+        Width: =324
+        X: =118
+        Y: =370
+        ZIndex: =19
+
+    Label3 As label:
+        Text: ="Visitor's Number"
+        X: =114
+        Y: =344
+        ZIndex: =20
 

@@ -1,4 +1,4 @@
-Screen1 As screen:
+Single_Access As screen:
     Fill: =RGBA(179, 179, 179, 1)
 
     Req_Full_Name As text:
@@ -78,7 +78,9 @@ Screen1 As screen:
                 InReq_Company:Req_Com.Selected.Title,
                 RequestorName:User().FullName,
                 RequestorEmail:User().Email,
-                RequestDate:Today()
+                RequestDate:Today(),
+                Access_Group:"Single",
+                Visit_Number:Value("1")
             
             }
             )
@@ -174,7 +176,7 @@ Screen1 As screen:
     Button1_1 As button:
         BorderThickness: =0
         Height: =32
-        OnSelect: =Navigate(Screen2)
+        OnSelect: =Navigate(Home)
         Size: =10
         Text: ="Exit"
         Width: =130
