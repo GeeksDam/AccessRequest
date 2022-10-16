@@ -1,5 +1,5 @@
 Screen1 As screen:
-    Fill: =RGBA(153, 207, 236, 1)
+    Fill: =RGBA(179, 179, 179, 1)
 
     Req_Full_Name As text:
         Default: =""
@@ -61,6 +61,7 @@ Screen1 As screen:
         ZIndex: =6
 
     Button1 As button:
+        BorderThickness: =0
         Height: =32
         OnSelect: |-
             =//Code to send data to sharepoint
@@ -84,8 +85,8 @@ Screen1 As screen:
         Size: =10
         Text: ="Apply"
         Width: =130
-        X: =218
-        Y: =664
+        X: =114
+        Y: =639
         ZIndex: =8
 
     Req_Visitnote As text:
@@ -169,4 +170,15 @@ Screen1 As screen:
         X: =710
         Y: =478
         ZIndex: =17
+
+    Button1_1 As button:
+        BorderThickness: =0
+        Height: =32
+        OnSelect: =Navigate(Screen2)
+        Size: =10
+        Text: ="Exit"
+        Width: =130
+        X: =308
+        Y: =639
+        ZIndex: =18
 
