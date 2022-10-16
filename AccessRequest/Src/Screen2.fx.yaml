@@ -2,7 +2,12 @@ Screen2 As screen:
     Fill: =RGBA(179, 179, 179, 1)
 
     Button2 As button:
+        BorderThickness: =0
         OnSelect: =Navigate(Screen1)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
         Size: =12
         Text: ="Single Access"
         X: =66
@@ -10,18 +15,26 @@ Screen2 As screen:
         ZIndex: =1
 
     Button3 As button:
-        Height: =47
+        Height: =41
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
         Size: =12
         Text: ="Company access "
-        X: =66
-        Y: =211
+        X: =248
+        Y: =158
         ZIndex: =2
 
     Button4 As button:
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
         Size: =12
         Text: ="Administartor "
         X: =66
-        Y: =272
+        Y: =232
         ZIndex: =3
 
     Image2 As image:
@@ -30,4 +43,16 @@ Screen2 As screen:
         Width: =842
         X: =508
         ZIndex: =4
+
+    Button4_1 As button:
+        OnSelect: =Exit()
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =12
+        Text: ="EXIT"
+        X: =248
+        Y: =232
+        ZIndex: =5
 

@@ -1,0 +1,184 @@
+Company_Access As screen:
+    Fill: =RGBA(179, 179, 179, 1)
+
+    Req_Full_Name_1 As text:
+        Default: =""
+        HintText: ="Full Name"
+        Size: =10
+        X: =118
+        Y: =63
+        ZIndex: =1
+
+    Req_Email_1 As text:
+        Default: =""
+        HintText: ="Email"
+        Size: =10
+        X: =118
+        Y: =121
+        ZIndex: =2
+
+    ReqPhoner_1 As text:
+        Default: =""
+        Format: =TextFormat.Number
+        HintText: ="Phone Number"
+        Size: =10
+        X: =118
+        Y: =174
+        ZIndex: =3
+
+    Req_type_1 As combobox:
+        DisplayFields: =["Title"]
+        Height: =42
+        InputTextPlaceholder: ="Visit type"
+        Items: =Request_Visit_Type
+        SearchFields: =["Title"]
+        SearchItems: =Search(Request_Visit_Type,Req_type_1.SearchText,"Title")
+        SelectMultiple: =false
+        Size: =10
+        Width: =324
+        X: =114
+        Y: =274
+        ZIndex: =4
+
+    Req_Com_1 As combobox:
+        DisplayFields: =["Title"]
+        InputTextPlaceholder: ="Select Company"
+        Items: ='Company List'
+        SearchFields: =["Title"]
+        SearchItems: =Search('Company List',Req_Com_1.SearchText,"Title")
+        SelectMultiple: =false
+        Size: =10
+        X: =114
+        Y: =340
+        ZIndex: =5
+
+    Req_startdate_1 As datepicker:
+        Height: =30
+        Size: =10
+        Width: =220
+        X: =218
+        Y: =422
+        ZIndex: =6
+
+    Button1_2 As button:
+        BorderThickness: =0
+        Height: =32
+        OnSelect: |-
+            =//Code to send data to sharepoint
+            
+            Patch(Request_Table,{
+                InReq_PhoneNumber:Value(ReqPhone_1.Text),
+                InReq_email:Req_Email_1.Text,
+                InReq_FullName:Req_Full_Name_1.Text,
+                InReq_type:Req_type_1.Selected.Title,
+                InReq_code:Req_code_1.Text,        //Code depends on selected visit type
+                InReq_StartDate:Req_startdate_1.SelectedDate,
+                InReq_EndDate:Req_EndDate_1.SelectedDate,
+                InReq_VisitNote:Req_Visitnote_1.Text,
+                InReq_Company:Req_Com_1.Selected.Title,
+                RequestorName:User().FullName,
+                RequestorEmail:User().Email,
+                RequestDate:Today()
+            
+            }
+            )
+        Size: =10
+        Text: ="Apply"
+        Width: =130
+        X: =114
+        Y: =639
+        ZIndex: =8
+
+    Req_Visitnote_1 As text:
+        Default: =""
+        Height: =91
+        HintText: ="Visit Notes"
+        Mode: =TextMode.MultiLine
+        X: =118
+        Y: =523
+        ZIndex: =9
+
+    Req_code_1 As label:
+        Height: =38
+        Text: =Req_type_1.Selected.Visit_code
+        Visible: =false
+        Width: =104
+        X: =118
+        Y: =614
+        ZIndex: =10
+
+    Req_EndDate_1 As datepicker:
+        Height: =27
+        Size: =10
+        Width: =220
+        X: =218
+        Y: =469
+        ZIndex: =11
+
+    Dropdown1_1 As dropdown:
+        Default: =
+        Height: =37
+        Items: =["+44"]
+        Visible: =false
+        Width: =103
+        X: =764
+        Y: =63
+        ZIndex: =12
+
+    ReqPhone_1 As text:
+        Default: =Concatenate(Dropdown1_1.Selected.Value,ReqPhoner_1.Text)
+        DisplayMode: =DisplayMode.Disabled
+        Format: =TextFormat.Number
+        Size: =10
+        X: =118
+        Y: =214
+        ZIndex: =13
+
+    Label1_2 As label:
+        Height: =23
+        Size: =10
+        Text: |-
+            ="Start Date :"
+        X: =134
+        Y: =422
+        ZIndex: =14
+
+    Label1_3 As label:
+        Height: =23
+        Size: =10
+        Text: |-
+            ="End Date :"
+        X: =134
+        Y: =465
+        ZIndex: =15
+
+    Image1_1 As image:
+        Height: =441
+        Image: ='a-guide-to-qr-codes-and-how-to-scan-qr-codes-4'
+        Width: =769
+        X: =497
+        Y: =23
+        ZIndex: =16
+
+    Label2_1 As label:
+        Align: =Center
+        Font: =Font.'Courier New'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        Text: ="Access Control Request "
+        Width: =298
+        X: =710
+        Y: =478
+        ZIndex: =17
+
+    Button1_3 As button:
+        BorderThickness: =0
+        Height: =32
+        OnSelect: =Navigate(Screen2)
+        Size: =10
+        Text: ="Exit"
+        Width: =130
+        X: =308
+        Y: =639
+        ZIndex: =18
+
